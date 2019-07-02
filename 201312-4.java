@@ -39,8 +39,6 @@ public class a {
 					L+=m;
 				else
 					L+=2*m;
-				if(L>1000000007)
-					L=L%1000000007;
 			}
 		}
 		else
@@ -52,8 +50,6 @@ public class a {
 					L+=m;
 				else
 					L+=2*m;
-				if(L>1000000007)
-					L=L%1000000007;
 			}
 		}
 		
