@@ -106,11 +106,11 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		int n=scan.nextInt();
 		long L=0;//L is final answer
-		int m=1;
+
 		if(n%2==0)
 		{
 			L=pu(n/2-1,n-1)*ch(n/2-2)*ch(n/2-2);
-		
+			System.out.println(L);
 			for(int i=1;i<=n/2-2;i++)
 			{
 				L+=(pu(i,n-1)+pu(i+1,n-1))*ch(n-3-i)*ch(i-1);
@@ -127,17 +127,20 @@ public class Main {
 		L=L%1000000007;
 		
 		System.out.println(L);
-		//System.out.println(pu(2,5)*ch(1)*ch(1));
+		
 	}
 
-	public static int pu(int b,int a)
+	public static long pu(int b,int a)
 	{
-		int aa=1,bb=1,a_b=1;
+		long aa=1,bb=1,a_b=1;
 		for(int i=a;i>0;i--)
 		{
 			aa*=i;
 			
 		}
+		if(aa>1000000007)
+			aa=aa%1000000007;
+		
 		for(int i=b;i>0;i--)
 		{
 			bb*=i;
@@ -147,9 +150,9 @@ public class Main {
 			a_b*=i;
 		}
 		
-		return (aa/(bb*a_b));
+		return aa/(bb*a_b) ;
 	}
-	public static int ch(int b)
+	public static long ch(int b)
 	{
 		return b+1;
 	}
