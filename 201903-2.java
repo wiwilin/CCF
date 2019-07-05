@@ -6,11 +6,12 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		int n=scan.nextInt();
 		boolean[] b=new boolean[n];
+		ArrayList<Integer> elist=new ArrayList<Integer>();
+		ArrayList flist=new ArrayList();
 		for(int i=0;i<n;i++)
 		{
-			ArrayList<Integer> elist=new ArrayList<Integer>();
-			ArrayList flist=new ArrayList();
-			
+			elist.clear();
+			flist.clear();
 			elist.add(System.in.read()-48);
 			flist.add((char)System.in.read());
 			elist.add(System.in.read()-48);
@@ -29,8 +30,9 @@ public class Main {
 						elist.set(j,elist.get(j)*elist.get(j+1));
 						elist.remove(1+j);
 						flist.remove(j);
+						j--;
 					}
-					if(j<flist.size()&&(char)flist.get(j)=='/')
+					else if(j<flist.size()&&(char)flist.get(j)=='/')
 					{
 						elist.set(j,elist.get(j)/elist.get(j+1));
 						elist.remove(1+j);
@@ -44,8 +46,9 @@ public class Main {
 						elist.set(j,elist.get(j)+elist.get(j+1));
 						elist.remove(1+j);
 						flist.remove(j);
+						j--;
 					}
-					if(j<flist.size()&&(char)flist.get(j)=='-')
+					else if(j<flist.size()&&(char)flist.get(j)=='-')
 					{
 						elist.set(j,elist.get(j)-elist.get(j+1));
 						elist.remove(1+j);
